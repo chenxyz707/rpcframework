@@ -9,10 +9,9 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * Description
  *
- * @author chenlinchao
+ * @author chenxyz
  * @version 1.0
  * @date 2018-02-05
- * Copyright 青海粮食云项目组
  */
 public class Service extends BaseConfigBean implements InitializingBean, ApplicationContextAware {
 
