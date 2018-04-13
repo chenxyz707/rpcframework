@@ -27,13 +27,15 @@ public class RedisApi {
     private static JedisPoolConfig config = null;
 
     static {
-        InputStream in = RedisApi.class.getClassLoader().getResourceAsStream("/redis.properties");
+        InputStream in = RedisApi.class.getClassLoader().getResourceAsStream("META-INF/redis.properties");
         prop = new Properties();
         try {
             prop.load(in);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        config = new JedisPoolConfig();
 
         config.setMaxTotal(Integer.valueOf(prop.getProperty("MAX_TOTAL")));
         config.setMaxIdle(Integer.valueOf(prop.getProperty("MAX_IDLE")));

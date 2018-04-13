@@ -8,7 +8,7 @@
 	   http://www.chenxyz.com/schema/soa.xsd"
        default-lazy-init="true">
 
-    <soa:registry  protocol="redis" address="127.0.0.1:6379"></soa:registry>
+    <soa:registry  protocol="redis" address="172.16.4.39:6379"></soa:registry>
     <soa:reference id="testServiceImpl3" interface="com.chenxyz.test.service.TestService" loadbalance="random" protocol="http"></soa:reference>
     <soa:protocol  name="rmi" port="27017" host="127.0.0.1"></soa:protocol>
 
