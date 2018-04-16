@@ -1,6 +1,7 @@
 package com.chenxyz.cluster;
 
 import com.chenxyz.invoke.Invocation;
+import com.chenxyz.invoke.Invoke;
 
 /**
  * 调用节点失败直接忽略
@@ -12,6 +13,11 @@ import com.chenxyz.invoke.Invocation;
 public class FailsafeClusterInvoke implements Cluster {
     @Override
     public String invoke(Invocation invocation) throws Exception {
-        return null;
+        Invoke invoke = invocation.getInvoke();
+        try {
+            return invoke.invoke(invocation);
+        } catch (Exception e) {
+            return "ignore";
+        }
     }
 }

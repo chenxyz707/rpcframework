@@ -84,8 +84,12 @@ public class RedisRegistry implements BaseRegistry {
                     RedisApi.lpush(key, newReStr);
                 }
             } else {
+                // 这里是加入的新启动的机器
                 RedisApi.lpush(key, ipport.toJSONString());
             }
+        } else {
+            //所有的都是第一次启动
+            RedisApi.lpush(key, ipport.toJSONString());
         }
     }
 

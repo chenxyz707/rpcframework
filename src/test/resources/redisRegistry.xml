@@ -8,6 +8,9 @@
 	   http://www.chenxyz.com/schema/soa.xsd"
        default-lazy-init="true">
 
+
+    <bean id="testService" class="com.chenxyz.service.impl.TestServiceImpl"/>
+    <soa:service ref="testService" interface="com.chenxyz.service.TestService"></soa:service>
     <soa:registry  protocol="redis" address="172.16.4.39:6379"></soa:registry>
     <soa:reference id="testServiceImpl" interface="com.chenxyz.service.TestService" loadbalance="random" protocol="http"></soa:reference>
     <soa:protocol  name="http" port="27017" host="127.0.0.1"></soa:protocol>
