@@ -33,7 +33,9 @@ public class HttpInvoke implements Invoke {
         JSONObject sendParam = new JSONObject();
         sendParam.put("methodName", invocation.getMethod().getName());
         sendParam.put("methodParams", invocation.getObjs());
-        sendParam.put("paramTypes", invocation.getMethod().getParameterTypes());
+        sendParam.put("serviceId", reference.getId());
+        sendParam.put("paramTypes", invocation.getMethod()
+                .getParameterTypes());
 
         String url = "http://" + nodeInfo.getHost() + ":" + nodeInfo.getPort() +
                 nodeInfo.getContextpath();

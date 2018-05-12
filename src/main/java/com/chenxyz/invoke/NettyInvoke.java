@@ -32,7 +32,9 @@ public class NettyInvoke implements Invoke {
         JSONObject sendParam = new JSONObject();
         sendParam.put("methodName", invocation.getMethod().getName());
         sendParam.put("methodParams", invocation.getObjs());
-        sendParam.put("paramTypes", invocation.getMethod().getParameterTypes());
+        sendParam.put("serviceId", reference.getId());
+        sendParam.put("paramTypes", invocation.getMethod()
+                .getParameterTypes());
 
         return NettyUtil.sendMsg(nodeInfo.getHost(), nodeInfo.getPort(), sendParam.toJSONString());
     }
